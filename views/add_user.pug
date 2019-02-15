@@ -1,0 +1,25 @@
+doctype html
+html
+    head
+        meta(charset="utf-8")
+        link(href="css/style.css" rel="stylesheet")
+        link(href="css/add_book.css" rel="stylesheet")
+        script(src="../js/xhr.js")
+
+        title Home library
+    body
+        #header_btn
+            a(href="/add_user")
+                button() Новый пользователь        
+            a(href="/add_book") 
+                button() Новая книга
+            a(href="/") 
+                button() Список книг
+                
+        .card
+            form(action="/add_user" method="POST")
+                p Имя пользователя: 
+                    br
+                    input( name="name")                
+                button( type="submit") Добавить
+

@@ -1,0 +1,67 @@
+body{
+    margin-top: 100px;
+    background: #eee;
+    color: #333;
+    display: grid;
+    justify-content: center;
+    grid-template-rows:auto auto auto;
+    grid-row-gap: 15px;
+    font-family: 'Roboto', sans-serif;
+    background: url(1.jpg) ;
+    background-size: 2000px 1000px;
+
+
+
+
+}
+
+button{
+    border: 0;
+    background: #ddd;
+    color: #333;
+    box-shadow: 0 2px 0 rgba(0,0,0,0.05);
+    font-family: 'Roboto', sans-serif;
+    
+
+}
+
+a{
+    text-decoration: none;
+    color: #333;
+    font-family: 'Roboto', sans-serif;
+
+}
+
+#header_btn{
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Roboto', sans-serif;
+}
+
+#header_btn button{
+    width: 100px;
+    height: 50px;
+    margin: 0 3px;
+    font-family: 'Roboto', sans-serif;
+}
+
+#list_btn{
+    display: flex;
+    justify-content: space-around;
+    font-family: 'Roboto', sans-serif;
+}
+
+.card{
+    width: 331px;
+    background: #fff;
+    margin-bottom: 5px;
+    padding: 6px;
+    box-shadow: 0 2px 0 rgba(0,0,0,0.05);
+    font-family: 'Roboto', sans-serif;
+
+}
+
+.card p{
+    margin: 3px;
+    font-family: 'Roboto', sans-serif;
+}

@@ -1,0 +1,83 @@
+doctype html
+html
+    head
+        meta(charset="utf-8")
+        link(href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet")
+        link(href="../css/style.css" rel="stylesheet")
+        link(href="../css/book_card.css"  rel="stylesheet")
+        
+        script(src="../js/xhr.js")
+
+
+        title= book.name
+    body
+        #header_btn
+            a(href="/add_user")
+                button() Новый пользователь        
+            a(href="/add_book") 
+                button() Новая книга
+            a(href="/") 
+                button() Список книг
+
+        #book_card.card
+            h1= book.name
+            p!= '<strong>Автор:</strong> ' + book.author
+            p!= '<strong>Первая публикация:</strong> ' + book.release_date
+            p!= '<strong>ID Книги:</strong> ' + book.id
+            p!= '<strong>Краткое описание:</strong> ' + book.info
+            if book.available
+                h3
+                    span(style="color: green ") В наличии
+            else
+                - let date = new Date(book.return_date)
+                p!= '<strong>У читателя до :</strong> ' + date.toDateString()
+                p(id="user" onclick=`user(${book.reader_id})`)!= '<strong>ID читателя:</strong> ' + book.reader_id
+
+        #buttons
+            button(id="change_btn") Изменить
+
+            if book.available 
+                button(id="give_btn" ) Выдать
+            else 
+                form(method="POST" action="/book_card/return/" + book.id)
+                    button(id="return_btn" type="submit") Вернуть
+                button(id="extend_btn") Продлить
+
+        #book_change.card
+            form(method="POST" action="/book_card/" + book.id)
+                p Название: 
+                    br
+                    input(name="name" value= book.name)
+                p Автор:
+                    br 
+                    input(name="author" value= book.author)
+                p Первая публикация: 
+                    br
+                    input(type="number" name="release_date" value= book.release_date)
+                p Краткое описание: 
+                    br
+                    input( name="info" value= book.info)                
+                button( type="submit") Изменить
+
+        #book_give.card
+            form(method="POST" action="/book_card/" + book.id)
+                input(name="days" value= 30)
+                br
+                - for (var i = 0; i < storage.users.length; i++)
+                    p
+                        input(type="radio" name="user_id" value= storage.users[i].id)
+                        span= storage.users[i].name
+                button( type="submit") Выдать
+
+        #book_extend.card
+            form(method="POST" action="/book_card/" + book.id)
+                input(name="extend_days" value= 15)
+                button( type="submit") Продлить
+
+
+
+
+        script(src="../js/book_card.js")
+
+
+

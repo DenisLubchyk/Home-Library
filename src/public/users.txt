@@ -1,0 +1,1 @@
+[{"id":0,"name":"Player","books":[]},{"id":1,"name":"Vania","books":[55]},{"id":2,"name":"ilia","books":[]},{"id":20,"name":"Kirill","books":[]},{"id":21,"name":"Alex","books":[54,52]},{"id":22,"name":"Nick","books":[]},{"id":23,"name":"Max","books":[59]},{"id":24,"name":"asd","books":[]},{"id":25,"name":"","books":[]}]
